@@ -1,0 +1,34 @@
+
+{% block content %}
+<h1>All books</h1>
+{% for book in booklist %}
+  <ul>
+    <li ><b> Title:</b> {{ book.title }}</li>
+     
+
+    <li><b>summary:</b> {{ book.summary }}</li>
+    <li><b>Author:</b> {{ book.author }}</li>
+    <li><b>ISBN: </b>{{ book.isbn }}</li>
+
+    <li><a href="/delete_book/{{book.id}}/"  onclick="return confirm('Are you sure you want to delete this book?')">Delete</a></li>
+    
+    
+  
+</ul>
+
+
+  
+{% endfor %}
+
+
+    <a href="{% url 'add_book' %}">    <button type="submit" >Add Book</button> </a>
+
+
+
+    <form >
+        <input  type="search" placeholder="Search" aria-label="Search" name="search" >
+     <a>   <button  type="submit">Search</button> </a>  
+    </form>
+
+
+{% endblock %}

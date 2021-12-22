@@ -1,0 +1,33 @@
+
+{% block body %}
+<div class="container">
+    <form method="POST"> {% csrf_token %}
+   
+            <label>Book Name</label>
+            <input type="text" name="title" placeholder="Enter name of the Book" required>
+       
+    </div>
+
+    
+            <label >Author Name </label>
+            <input type="text"  name="author" placeholder="Enter name of the Author" required>
+       
+    </div>
+          <label>Summary</label>
+          <input type="text" name="summary" placeholder="Enter Summary of the book" required>
+    
+          
+    </div>
+
+    
+    <label>ISBN Number</label>
+    <input type="number" name="isbn" placeholder="Enter ISBN number of the book" required>
+
+       
+    </div>
+    <button type="submit" >Add Book</button>
+</div>
+</form>
+{% endblock %}
+
+

@@ -1,0 +1,9 @@
+
+{% load static %}
+<h1>List of All books</h1>
+{% for book in booklist %}
+  <ul>
+    <h2> Title : <a href="{% url 'booklist1' %}">{{ book.title }}</a></h2>
+   
+  </ul>
+{% endfor %}
