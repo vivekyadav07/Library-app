@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-import re
+from .forms import *
 from django.db.models import Q
 from django.views.generic import  ListView
 
@@ -44,6 +44,44 @@ def add_book(request):
     return render(request, "add_book.html")
 
 
+  #UPDATE BOOK
+def update_data(request,id):
+
+
+    if request.method == "POST":
+
+        pi=Book.objects.get(pk=id)
+        fm =Bookform(request.POST,instance=pi)
+        if fm.is_valid():
+         fm.save()
+
+    else:
+
+
+        pi=Book.objects.get(pk=id)
+        fm =Bookform(instance=pi)
+    return render (request,'update_data.html',{'form':fm})       
+
+    
+
+       
+'''title = request.POST['title']
+        author = request.POST['author']
+        summary = request.POST.get('summary')
+        isbn = request.POST['isbn']
+       
+
+        books = Book.objects.create(title=title, author=author,summary=summary,isbn=isbn)
+        books.save()
+   
+ 
+
+       
+    return render(request, "add_book.html")'''
+
+
+
+
 
 #DELETE BOOK
 
@@ -54,7 +92,7 @@ def delete_book(request, myid):
 
 
 #SEARCH WORDS 
-
+'''   
 def searchposts(request):
     if request.method == 'GET':
         query= request.GET.get('q')
@@ -77,6 +115,6 @@ def searchposts(request):
     else:
         return render(request, 'search.html')
 
-
+'''
 
 

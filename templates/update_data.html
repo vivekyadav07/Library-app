@@ -1,0 +1,13 @@
+
+{% block content %}
+<form action='' method="post"> 
+{% csrf_token %}
+
+{{form.as_p}}
+
+<input type="submit"  class="btn btn-succes" value="Update">
+
+</form>
+
+
+{% endblock content %}
