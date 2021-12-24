@@ -25,7 +25,13 @@
 
 
 
-    <h1>HomePage</h1>
+    <form class="search" action="{% url 'search_results' %}"  method="get"  >
+      
+      <button type="submit" >Search</button>
+      <input name="q"  type="text" autocomplete="off" placeholder="click to search">
+     
+    </form>
+
 
 
 

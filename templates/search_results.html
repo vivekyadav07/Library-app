@@ -1,0 +1,15 @@
+{% block content %}
+
+    <h3 >Search Results</h3><hr>
+
+    {% for every in book_list %}
+        <div>
+            <h3>{{ every.title }}</h3>
+            <p>Author: {{ every.author }}</p>
+            <p>ISBN: {{ every.isbn }}</p>
+        </div>
+    {% empty %}
+    <h5 >Nothing found :(</h5>
+    {% endfor %}
+    <a href="{% url 'booklist1' %}" class="btn btn-info">Back To list</a>
+{% endblock content %}

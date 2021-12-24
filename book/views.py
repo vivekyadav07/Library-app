@@ -64,23 +64,6 @@ def update_data(request,id):
 
     
 
-       
-'''title = request.POST['title']
-        author = request.POST['author']
-        summary = request.POST.get('summary')
-        isbn = request.POST['isbn']
-       
-
-        books = Book.objects.create(title=title, author=author,summary=summary,isbn=isbn)
-        books.save()
-   
- 
-
-       
-    return render(request, "add_book.html")'''
-
-
-
 
 
 #DELETE BOOK
@@ -92,29 +75,11 @@ def delete_book(request, myid):
 
 
 #SEARCH WORDS 
-'''   
-def searchposts(request):
-    if request.method == 'GET':
-        query= request.GET.get('q')
 
-        submitbutton= request.GET.get('submit')
+class SearchResultsListView(ListView):
+	model = Book
+	template_name = 'search_results.html'
 
-        if query is not None:
-            lookups= Q(title__icontains=query) | Q(author__icontains=query)
-
-            results= Book.objects.filter(lookups).distinct()
-
-            context={'results': results,
-                     'submitbutton': submitbutton}
-
-            return render(request, 'search.html', context)
-
-        else:
-            return render(request, 'search.html')
-
-    else:
-        return render(request, 'search.html')
-
-'''
-
-
+	def get_queryset(self): # new
+		query = self.request.GET.get('q')
+		return Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query))
