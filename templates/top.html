@@ -1,0 +1,21 @@
+<table>
+<tr>
+ <th> Title</th>
+ <th> Author</th>
+
+ <th> Id</th>
+</tr>
+
+{% for st in booklist %}
+<tr>
+
+<td> {{st.title}}</td>
+<td> {{st.author}}</td>
+
+<td> {{st.isbn}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
